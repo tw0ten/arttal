@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width">
+
+		<title>arttal</title>
+		<link rel="icon" href="/icon.png">
+
+		<link rel="stylesheet" href="/style.css" />
+		<link rel="stylesheet" href="o/font/art/font-face.css" />
+	</head>
+	<body>
+		<style>
+			h3 {
+				color: var(--acc);
+				margin-bottom: 0.5rem;
+			}
+
+			.art {
+				line-height: 1.0;
+				font-family: "art";
+				text-align: left;
+			}
+
+			#split {
+				font-size: 2em;
+				& > textarea {
+					width: 100%;
+					height: 10em;
+				}
+			}
+
+			input, textarea {
+				text-align: left;
+				font-size: 1em;
+			}
+
+			#mapping {
+				display: grid;
+				grid-template-columns: repeat(16, 1fr);
+				gap: 0.5em;
+
+				& > div {
+					overflow: hidden;
+					width: 5em;
+					& > input {
+						max-width: 100%;
+						font-size: 1em;
+						background: var(--fgc);
+						color: var(--bgc);
+					}
+				}
+			}
+		</style>
+		<header style="display: grid; place-items: center">
+			<section>
+				<h2 style="color: var(--acc)">arttal</h2>
+			</section>
+		</header>
+		<main>
+			<section id="split"></section>
+			<section id="mapping"></section>
+		</main>
+		<footer style="opacity: 0.5">
+			<section id="w" class="art"></section>
+			<script type="module">
+				import * as dom from "/lib/dom.js";
+				import * as math from "/lib/math.js";
+				import * as data from "/lib/data.js";
+
+				const art = {
+					s: 128,
+					n: math.pow(2, 8),
+					f: {
+						string: (i) => i.toString(2).padStart(8, "0"),
+						binary: (i) =>
+							art.f.string(i).split("").map((i) => i === "1")
+								.reverse(),
+					},
+					t: {
+						flippable: (i) =>
+							(!i[2] && !i[2 + 4]) &&
+							((i[1] !== i[3]) || (i[1 + 4] !== i[3 + 4])),
+						symmetrical: (i) =>
+							(!i[2] && !i[2 + 4]) &&
+							((i[1] === i[3]) && (i[1 + 4] === i[3 + 4])),
+						fullheight: (i) =>
+							i.slice(0, 4).some((i) => i) &&
+							i.slice(5).some((i) => i),
+						connected: (
+							i,
+							m = [
+								[0, 1, 2, 3],
+								[1, 0, 2, 3, 4, 6, 7],
+								[2, 0, 1, 3, 4, 6, 7],
+								[3, 0, 1, 2, 4, 5],
+								[4, 1, 2, 3, 5, 6, 7],
+								[5, 3, 4, 6, 7],
+								[6, 1, 2, 4, 5, 7],
+								[7, 1, 2, 4, 5, 6],
+							],
+						) => {
+							const a = i.map((v, i) => v ? i : null).filter((i) =>
+								i !== null
+							);
+							const v = math.range(i.length).map(() => false);
+							const dfs = (n) => {
+								if (v[n]) return;
+								v[n] = true;
+								m[n].map((id) => i[id] ? dfs(id) : null);
+							};
+							dfs(a[0] ?? 0);
+							return a.every((i) => v[i]);
+						},
+					},
+				};
+
+				setInterval(() => {
+					dom.id("w").text(
+						math.range(8).map((i) =>
+							math.range(16).map((i) =>
+								String.fromCharCode(
+									0xE000 + math.random.fraction() * 256,
+								)
+							).join("")
+						).join("\n"),
+					);
+				}, 500);
+
+				const log = {
+					i: (await data.fetch.get(`o/font/log`)).split("\n"),
+				};
+
+				log.chars = log.i
+					.filter((i) => i.startsWith("glyph "))
+					.map((i) => i.slice(6).split(" "))
+					.map(([utf, file]) =>
+						utf.startsWith("E0")
+							? null
+							: String.fromCharCode(Number(`0x${utf}`))
+					).filter((i) => i != null);
+
+				{
+					const out = dom.tag("p").classes.set("art");
+					dom.id("split").children.set(
+						dom.tag("textarea")
+							.value(
+								"The quick brown fox jumps over a lazy dog. 1234567890\n" +
+									log.chars.join(" "),
+							)
+							.on("input", (i) => out.text(i.o.value()))
+							.on("input"),
+						out,
+					);
+				}
+
+				dom.id("mapping").children.set(
+					...math.range(art.n).map((
+						i,
+					) => {
+						const binaryString = art.f.string(i);
+						const binary = art.f.binary(i);
+						return dom.tag()
+							.children.set(
+								dom.tag("input")
+									.set("type", "text")
+									.set("disabled")
+									.value(
+										log.i
+											.filter((i) => i.startsWith("glyph "))
+											.map((i) => i.slice(6).split(" "))
+											.map(([utf, file]) =>
+												file === binaryString
+													? String.fromCharCode(Number(`0x${utf}`))
+													: null
+											)
+											.filter((i) => i != null)
+											.slice(1)
+											.join(""),
+									),
+								dom.tag("p").text(`${binaryString}`).set(
+									"title",
+									`${
+										Object.keys(art.t)
+											.filter((i) => art.t[i](binary))
+											.map((i) => `${i}`)
+											.join("\n")
+									}`,
+								),
+								dom.tag("svg").mut(async (e) =>
+									e.outerHTML = await data.fetch.get(
+										`o/art/${binaryString}/.svg`,
+									)
+								),
+							);
+					}),
+				);
+			</script>
+		</footer>
+	</body>
+</html>
