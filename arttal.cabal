@@ -1,0 +1,32 @@
+cabal-version: 3.14
+
+name: arttal
+version: 0
+
+common opts
+  ghc-options: -Wall
+  default-language: GHC2024
+
+library
+  import: opts
+  hs-source-dirs: lib
+
+  exposed-modules:
+    Art
+    Etc
+    Tal
+
+  build-depends:
+    , base
+    , directory
+    , JuicyPixels
+
+executable arttal
+  import: opts
+  hs-source-dirs: src
+
+  main-is: Main.hs
+
+  build-depends:
+    , arttal
+    , base

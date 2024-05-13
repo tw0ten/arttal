@@ -1,0 +1,5 @@
+#!/bin/fontforge
+Open($1)
+MergeFonts($2)
+SetFontNames($4, $4, $4)
+Generate($3)

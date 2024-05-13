@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+cd .io
+
+( set -e; cd o/font
+for family in */; do (
+	set -e
+	cd "$family"
+	family="$(echo "$family" | sed 's/.$//')"
+	( cd ttf && for file in *; do
+		sudo cp -v \
+			"$file" "/usr/share/fonts/TTF/$family-$file"
+	done )
+) done )
+
+fc-cache -vf

@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+mkdir -p o/art
+cd o/art
+
+[ -e "$@" ] && exit
+echo art $@
+
+../arttal art $@
+
+cd "$@"
+inkscape '.svg' -o 'o.svg' \
+	-l \
+	--actions='select-all:all;path-union' \
+	2>/dev/null
+mv 'o.svg' '.svg'
