@@ -40,6 +40,11 @@ def font_generate(name="art"):
         print("# font", file)
         f.generate(file)
 
+        if scale == 0:
+            file = f"{path}/font.otf"
+            print("# font", file)
+            f.generate(file)
+
     file = f"{path}/font.ttc"
     print("# font", file)
     ttc = TTCollection()
@@ -70,7 +75,7 @@ def is_caseable(i): return \
 m = [[] for i in range(2 ** 8)]
 
 m[0b00000000] += [' ', '​']
-m[0b00000001] += ['々', '〻']
+m[0b00000001] += ['ー', '々', '〻']
 m[0b00000011] += ['1']
 m[0b00000100] += ['\'']+['‘', '’']
 m[0b00000101] += ['0']
@@ -78,7 +83,7 @@ m[0b00000110] += ['`']
 m[0b00000111] += ['°']
 m[0b00001010] += ['*', '×']
 m[0b00001011] += ['+']
-m[0b00010000] += ['-'] + ['—', '…']
+m[0b00010000] += ['-']+['—', '…'] + ['−']
 m[0b00010001] += ['=']
 m[0b00010011] += ['2']
 m[0b00010101] += ['#']
@@ -144,7 +149,7 @@ m[0b10100011] += ['[']
 m[0b10101000] += ['j', 'J'] + ['ж', 'Ж']+['ž', 'Ž']
 m[0b10101001] += [']']
 m[0b10101010] += ['x', 'X']+['ξ', 'Ξ']
-m[0b10101011] += ['|']
+m[0b10101011] += ['|'] + ['·']
 m[0b10110000] += ['_']
 m[0b11000010] += ['ч', 'Ч']+['č', 'Č']
 m[0b11000011] += ['þ', 'Þ']+['θ', 'Θ']
@@ -237,7 +242,18 @@ def add_ligature(target="ab", replacement='c'):
         font[r].addPosSub("liga_subtable", tuple(t))
 
 
-def add_expander(target='a', replacement="bc"):
+def with_repeat(chars="", repeat='ー'):
+    if not chars:
+        return ""
+    o = f"{chars[0]}"
+    for i in range(1, len(chars)):
+        o += repeat if chars[i] == chars[i - 1] else chars[i]
+    return o
+
+
+def add_expander(target='a', replacement="bc", repeat=True):
+    if repeat:
+        replacement = with_repeat(replacement)
     for (t, r) in ([
         # a bc
             (target.lower(), replacement.lower()),
@@ -288,20 +304,23 @@ add_expander('ž', "zh")
 
 add_expander('ψ', "πσ")
 
+add_expander('¢', "¤%")
 add_expander('€', "¤E")
 add_expander('¥', "¤Y")
 add_expander('£', "¤L")
 
-add_expander('…', "...")
-add_expander('—', "--")
+add_expander('…', "...", repeat=False)
+add_expander('—', "--", repeat=False)
 add_expander('©', "(C)")
 add_expander('®', "(R)")
+
+add_expander('²', "^2")
 
 
 def japanese():
     vowels = ['a', 'i', 'u', 'e', 'o']
     katakana = \
-        [(['ア', 'イ', 'ウ', 'エ', 'オ'], None),
+        [(['ア', 'イ', 'ウ', 'エ', 'オ'], ""),
          (['カ', 'キ', 'ク', 'ケ', 'コ'], 'k'),
          (['ガ', 'ギ', 'グ', 'ゲ', 'ゴ'], 'g'),
          (['サ', 'シ', 'ス', 'セ', 'ソ'], 's'),
@@ -317,7 +336,7 @@ def japanese():
          (['ラ', 'リ', 'ル', 'レ', 'ロ'], 'r'),
          (['ワ', 'ヰ', None, 'ヱ', 'ヲ'], 'w')]
     hiragana = \
-        [(['あ', 'い', 'う', 'え', 'お'], None),
+        [(['あ', 'い', 'う', 'え', 'お'], ""),
          (['か', 'き', 'く', 'け', 'こ'], 'k'),
          (['さ', 'し', 'す', 'せ', 'そ'], 's'),
          (['た', 'ち', 'つ', 'て', 'と'], 't'),
@@ -337,14 +356,13 @@ def japanese():
                 if kana[i] is not None:
                     c1 = c1o
                     c2 = vowels[i]
-                    if c1 is None:
-                        c1 = c2
                     add_expander(kana[i], f"{c1}{c2}")
 
+    add_expander('々', "ーー", repeat=False)
     kana(katakana)
-    add_expander('ン', "nn")
+    add_expander('ン', "n")
     kana(hiragana)
-    add_expander('ん', "nn")
+    add_expander('ん', "n")
 
 
 japanese()
