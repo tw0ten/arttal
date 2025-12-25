@@ -14,20 +14,19 @@ def font_generate(name="art"):
     os.mkdir(path)
 
     variants = [
-        ("Thin", 100, -3),
-        ("ExtraLight", 200, -2),
-        ("Light", 300, -1),
+        # ("Thin", 100, -3),
+        # ("ExtraLight", 200, -2),
+        # ("Light", 300, -1),
         ("Regular", 400, 0),
-        ("Medium", 500, 1),
-        ("SemiBold", 600, 2),
-        ("Bold", 700, 3),
-        ("ExtraBold", 800, 4),
-        ("Black", 900, 5),
+        # ("Medium", 500, 1),
+        # ("SemiBold", 600, 2),
+        # ("Bold", 700, 3),
+        # ("ExtraBold", 800, 4),
+        # ("Black", 900, 5),
     ]
 
     os.mkdir(f"{path}/ttf")
     for (variant, weight, scale) in variants:
-        # todo: weights and such
         f = font
 
         f.weight = variant
@@ -56,6 +55,7 @@ def font_generate(name="art"):
     with open(file, "w") as file:
         file.write(
             "\n".join(
+                [f"@font-face {{ font-family: \"{name}\"; src: url(\"font.otf\"); }}"] +
                 ["@font-face { " +
                  "; ".join([
                      f"font-family: \"{name}\"",
