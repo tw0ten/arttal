@@ -6,6 +6,8 @@ glyph 0020 00000000
 glyph 200B 00000000
 art 00000001
 glyph E001 00000001
+# m 'ー'
+glyph 30FC 00000001
 # m '々'
 glyph 3005 00000001
 # m '〻'
@@ -66,6 +68,8 @@ glyph 002D 00010000
 glyph 2014 00010000
 # m '…'
 glyph 2026 00010000
+# m '−'
+glyph 2212 00010000
 art 00010001
 glyph E011 00010001
 # m '='
@@ -792,6 +796,8 @@ art 10101011
 glyph E0AB 10101011
 # m '|'
 glyph 007C 10101011
+# m '·'
+glyph 00B7 10101011
 art 10101100
 glyph E0AC 10101100
 art 10101101
@@ -1036,15 +1042,8 @@ art 11111111
 glyph E0FF 11111111
 # m '.notdef'
 glyph -001 11111111
-# font o/font/art.mono/ttf/Thin.ttf
-# font o/font/art.mono/ttf/ExtraLight.ttf
-# font o/font/art.mono/ttf/Light.ttf
 # font o/font/art.mono/ttf/Regular.ttf
-# font o/font/art.mono/ttf/Medium.ttf
-# font o/font/art.mono/ttf/SemiBold.ttf
-# font o/font/art.mono/ttf/Bold.ttf
-# font o/font/art.mono/ttf/ExtraBold.ttf
-# font o/font/art.mono/ttf/Black.ttf
+# font o/font/art.mono/font.otf
 # font o/font/art.mono/font.ttc
 # font o/font/art.mono/font-face.css
 font "art.mono"
@@ -1052,10 +1051,6 @@ font "art.mono"
 ligature "ng" 'ŋ'
 ligature "Ng" 'Ŋ'
 ligature "NG" 'Ŋ'
-# ligature "нг" 'ŋ'
-ligature "нг" 'ŋ'
-ligature "Нг" 'Ŋ'
-ligature "НГ" 'Ŋ'
 # ligature "th" 'þ'
 ligature "th" 'þ'
 ligature "Th" 'Þ'
@@ -1076,24 +1071,28 @@ ligature "SH" 'Ш'
 ligature "ph" 'f'
 ligature "Ph" 'F'
 ligature "PH" 'F'
+# ligature "нг" 'ŋ'
+ligature "нг" 'ŋ'
+ligature "Нг" 'Ŋ'
+ligature "НГ" 'Ŋ'
 # ligature "кс" 'x'
 ligature "кс" 'x'
 ligature "Кс" 'X'
 ligature "КС" 'X'
-# expander 'ñ' "nn"
-art 01010100+01010100
+# expander 'ñ' "nー"
+art 01010100+00000001
 # glyph override
-glyph 00F1 01010100+01010100
-# expander 'Ñ' "NN"
+glyph 00F1 01010100+00000001
+# expander 'Ñ' "Nー"
 # glyph override
-glyph 00D1 01010100+01010100
-# expander 'ß' "ss"
-art 10000101+10000101
+glyph 00D1 01010100+00000001
+# expander 'ß' "sー"
+art 10000101+00000001
 # glyph override
-glyph 00DF 10000101+10000101
-# expander 'ẞ' "SS"
+glyph 00DF 10000101+00000001
+# expander 'ẞ' "Sー"
 # glyph override
-glyph 1E9E 10000101+10000101
+glyph 1E9E 10000101+00000001
 # expander 'я' "йа"
 art 00101010+01000010
 # glyph override
@@ -1144,40 +1143,40 @@ glyph 00C6 01000010+10010100
 glyph 0153 01000101+10010100
 # expander 'Œ' "OE"
 glyph 0152 01000101+10010100
-# expander 'ą' "aa"
-art 01000010+01000010
+# expander 'ą' "aー"
+art 01000010+00000001
 # glyph override
-glyph 0105 01000010+01000010
-# expander 'Ą' "AA"
+glyph 0105 01000010+00000001
+# expander 'Ą' "Aー"
 # glyph override
-glyph 0104 01000010+01000010
-# expander 'ę' "ee"
-art 10010100+10010100
+glyph 0104 01000010+00000001
+# expander 'ę' "eー"
+art 10010100+00000001
 # glyph override
-glyph 0119 10010100+10010100
-# expander 'Ę' "EE"
+glyph 0119 10010100+00000001
+# expander 'Ę' "Eー"
 # glyph override
-glyph 0118 10010100+10010100
-# expander 'į' "ii"
-art 00110010+00110010
+glyph 0118 10010100+00000001
+# expander 'į' "iー"
+art 00110010+00000001
 # glyph override
-glyph 012F 00110010+00110010
-# expander 'Į' "II"
+glyph 012F 00110010+00000001
+# expander 'Į' "Iー"
 # glyph override
-glyph 012E 00110010+00110010
-# expander 'ū' "uu"
-art 00101100+00101100
+glyph 012E 00110010+00000001
+# expander 'ū' "uー"
+art 00101100+00000001
 # glyph override
-glyph 016B 00101100+00101100
-# expander 'Ū' "UU"
+glyph 016B 00101100+00000001
+# expander 'Ū' "Uー"
 # glyph override
-glyph 016A 00101100+00101100
-# expander 'ų' "uu"
+glyph 016A 00101100+00000001
+# expander 'ų' "uー"
 # glyph override
-glyph 0173 00101100+00101100
-# expander 'Ų' "UU"
+glyph 0173 00101100+00000001
+# expander 'Ų' "Uー"
 # glyph override
-glyph 0172 00101100+00101100
+glyph 0172 00101100+00000001
 # expander 'ž' "zh"
 art 11101000+11000100
 # glyph override
@@ -1190,6 +1189,9 @@ art 01011000+10000101
 glyph 03C8 01011000+10000101
 # expander 'Ψ' "ΠΣ"
 glyph 03A8 01011000+10000101
+# expander '¢' "¤%"
+art 01001100+01110110
+glyph 00A2 01001100+01110110
 # expander '€' "¤E"
 art 01001100+10010100
 # glyph override
@@ -1216,17 +1218,23 @@ glyph 00A9 10000010+10000110+00101000
 # expander '®' "(R)"
 art 10000010+10011000+00101000
 glyph 00AE 10000010+10011000+00101000
-# expander 'ア' "aa"
-glyph 30A2 01000010+01000010
-# expander 'イ' "ii"
-glyph 30A4 00110010+00110010
-# expander 'ウ' "uu"
-glyph 30A6 00101100+00101100
-# expander 'エ' "ee"
-glyph 30A8 10010100+10010100
-# expander 'オ' "oo"
-art 01000101+01000101
-glyph 30AA 01000101+01000101
+# expander '²' "^2"
+art 00011010+00010011
+glyph 00B2 00011010+00010011
+# expander '々' "ーー"
+art 00000001+00000001
+# glyph override
+glyph 3005 00000001+00000001
+# expander 'ア' "a"
+glyph 30A2 01000010
+# expander 'イ' "i"
+glyph 30A4 00110010
+# expander 'ウ' "u"
+glyph 30A6 00101100
+# expander 'エ' "e"
+glyph 30A8 10010100
+# expander 'オ' "o"
+glyph 30AA 01000101
 # expander 'カ' "ka"
 art 01010101+01000010
 glyph 30AB 01010101+01000010
@@ -1425,18 +1433,18 @@ glyph 30F1 01100110+10010100
 # expander 'ヲ' "wo"
 art 01100110+01000101
 glyph 30F2 01100110+01000101
-# expander 'ン' "nn"
-glyph 30F3 01010100+01010100
-# expander 'あ' "aa"
-glyph 3042 01000010+01000010
-# expander 'い' "ii"
-glyph 3044 00110010+00110010
-# expander 'う' "uu"
-glyph 3046 00101100+00101100
-# expander 'え' "ee"
-glyph 3048 10010100+10010100
-# expander 'お' "oo"
-glyph 304A 01000101+01000101
+# expander 'ン' "n"
+glyph 30F3 01010100
+# expander 'あ' "a"
+glyph 3042 01000010
+# expander 'い' "i"
+glyph 3044 00110010
+# expander 'う' "u"
+glyph 3046 00101100
+# expander 'え' "e"
+glyph 3048 10010100
+# expander 'お' "o"
+glyph 304A 01000101
 # expander 'か' "ka"
 glyph 304B 01010101+01000010
 # expander 'き' "ki"
@@ -1521,17 +1529,10 @@ glyph 3090 01100110+00110010
 glyph 3091 01100110+10010100
 # expander 'を' "wo"
 glyph 3092 01100110+01000101
-# expander 'ん' "nn"
-glyph 3093 01010100+01010100
-# font o/font/art/ttf/Thin.ttf
-# font o/font/art/ttf/ExtraLight.ttf
-# font o/font/art/ttf/Light.ttf
+# expander 'ん' "n"
+glyph 3093 01010100
 # font o/font/art/ttf/Regular.ttf
-# font o/font/art/ttf/Medium.ttf
-# font o/font/art/ttf/SemiBold.ttf
-# font o/font/art/ttf/Bold.ttf
-# font o/font/art/ttf/ExtraBold.ttf
-# font o/font/art/ttf/Black.ttf
+# font o/font/art/font.otf
 # font o/font/art/font.ttc
 # font o/font/art/font-face.css
 font "art"
