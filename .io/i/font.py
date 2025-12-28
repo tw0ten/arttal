@@ -314,6 +314,20 @@ add_expander('—', "--", repeat=False)
 add_expander('©', "(C)")
 add_expander('®', "(R)")
 
+add_expander('。', ". ")
+add_expander('　', "  ", repeat=False)
+add_expander('，', ", ")
+add_expander('！', "! ")
+add_expander('？', "? ")
+add_expander('；', "; ")
+add_expander('：', ": ")
+add_expander('（', " (")
+add_expander('）', ") ")
+add_expander('［', " [")
+add_expander('］', "] ")
+add_expander('【', " [")
+add_expander('】', "] ")
+
 add_expander('²', "^2")
 
 
