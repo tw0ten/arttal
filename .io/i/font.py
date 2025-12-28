@@ -6,7 +6,7 @@ font = fontforge.font()
 
 
 def font_generate(name="art"):
-    assert sum(name.count(i) for i in ['"', ' ', '-']) == 0
+    assert sum(name.count(i) for i in ['"', ' ', '-', '/']) == 0
 
     font.familyname = name
 
@@ -55,7 +55,9 @@ def font_generate(name="art"):
     with open(file, "w") as file:
         file.write(
             "\n".join(
-                [f"@font-face {{ font-family: \"{name}\"; src: url(\"font.otf\"); }}"] +
+                ["@font-face { "
+                 + f"font-family: \"{name}\"; src: url(\"font.otf\");"
+                 + " }"] +
                 ["@font-face { " +
                  "; ".join([
                      f"font-family: \"{name}\"",

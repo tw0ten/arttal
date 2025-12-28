@@ -11,7 +11,3 @@ cd .io
 
 mkdir 'o/font'
 python i/font.py | tee 'o/font/log'
-
-i/merge.ff \
-	o/font/art/ttf/Regular.ttf "/usr/share/fonts/TTF/JetBrainsMono-Regular.ttf" \
-	'o/font/art+JetBrainsMono.ttf' "art+JetBrainsMono"
