@@ -19,3 +19,9 @@ fc-cache -vf )
 ( set -e; cd i/locale
 	sudo cp arttal.locale /usr/share/i18n/locales/arttal
 	sudo locale-gen )
+
+set -x
+fc-match sans-serif
+fc-match serif
+fc-match monospace
+fc-match system-ui

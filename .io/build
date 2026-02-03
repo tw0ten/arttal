@@ -1,13 +1,13 @@
 #!/bin/sh
-set -e
-
-rm -rf .io/o
-mkdir .io/o
+set -ex
 
 cabal build
-cp "$(cabal list-bin arttal)" .io/o
+diff "$(cabal list-bin arttal)" .io/o/arttal || {
+	rm -rf .io/o/art
+	cp "$(cabal list-bin arttal)" .io/o
+}
 
 cd .io
 
-mkdir 'o/font'
-python i/font.py | tee 'o/font/log'
+rm -rf o/font && mkdir o/font
+python i/font.py | tee o/font/log
