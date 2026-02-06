@@ -10,4 +10,4 @@ diff "$(cabal list-bin arttal)" .io/o/arttal || {
 cd .io
 
 rm -rf o/font && mkdir o/font
-python i/font.py | tee o/font/log
+python i/font.py | tee o/log
