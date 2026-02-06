@@ -52,19 +52,18 @@ def font_generate(name="art"):
 
     file = f"{path}/font-face.css"
     print("# font", file)
-    with open(file, "w") as file:
-        file.write(
-            "\n".join(
-                ["@font-face { "
-                 + f"font-family: \"{name}\"; src: url(\"font.otf\");"
-                 + " }"] +
-                ["@font-face { " +
-                 "; ".join([
-                     f"font-family: \"{name}\"",
-                     f"font-weight: {weight}",
-                     f"src: url(\"ttf/{variant}.ttf\")",
-                     ""]) +
-                 "}" for (variant, weight, _) in variants]))
+    open(file, "w").write(
+        "\n".join(
+            ["@font-face { "
+             + f"font-family: \"{name}\"; src: url(\"font.otf\");"
+             + " }"] +
+            ["@font-face { " +
+             "; ".join([
+                 f"font-family: \"{name}\"",
+                 f"font-weight: {weight}",
+                 f"src: url(\"ttf/{variant}.ttf\")",
+                 ""]) +
+             "}" for (variant, weight, _) in variants]))
 
     print(f"font \"{name}\"")
 
@@ -104,6 +103,7 @@ m[0b00110010] += \
     ['i', 'I']+['и', 'И']+['і', 'І']+['į', 'Į'] + \
     ['υ', 'Υ']+['ι', 'Ι']
 m[0b00110011] += ['3']
+m[0b00110100] += ['ь', 'Ь'] + ['ъ', 'Ъ']
 m[0b00110101] += ['5']
 m[0b00110110] += ['ы', 'Ы']
 m[0b00111000] += ['}']
@@ -121,6 +121,7 @@ m[0b01010100] += ['n', 'N']+['н', 'Н']+['ν', 'Ν'] + ['ñ', 'Ñ']
 m[0b01010101] += ['k', 'K']+['к', 'К']+['κ', 'Κ']
 m[0b01010110] += ['ŋ', 'Ŋ']
 m[0b01011000] += ['p', 'P']+['п', 'П']+['π', 'Π']
+m[0b01011100] += ['↑']
 m[0b01100000] += ['"', '“', '”', '„'] + ['«', '»']
 m[0b01100010] += ['l', 'L']+['л', 'Л']+['λ', 'Λ'] + ['£']
 m[0b01100100] += ['v', 'V']+['в', 'В'] + ['β', 'Β']
@@ -128,7 +129,7 @@ m[0b01100110] += ['w', 'W']
 m[0b01101100] += ['d', 'D']+['д', 'Д'] + ['δ', 'Δ']
 m[0b01110000] += ['&']
 m[0b01110010] += ['6']
-m[0b01110100] += ['ь', 'Ь'] + ['ъ', 'Ъ']
+m[0b01110100] += ['↓']
 m[0b01110110] += ['%']
 m[0b01110111] += ['8']
 m[0b01111001] += ['♪']
@@ -163,7 +164,7 @@ m[0b11100101] += ['q', 'Q']
 m[0b11100110] += ['ʍ']
 m[0b11101000] += ['z', 'Z']+['з', 'З']+['ζ', 'Ζ']
 m[0b11111110] += ['~']
-m[0b11111111] += [".notdef"]
+m[0b11111111] += ['�', ".notdef"]
 
 _m = []
 for i in m:
@@ -224,6 +225,10 @@ for i in range(len(m)):
 
 
 font_generate("art.mono")
+
+file = "o/m"
+print(f"m {file}")
+open(file, "w").write("".join([(i[0] if len(i) > 0 else " ") for i in m]))
 
 
 font.addLookup("liga", "gsub_ligature", (), (("liga", (("dflt", ("dflt")),)),))

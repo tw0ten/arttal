@@ -4,8 +4,8 @@ set -e
 mkdir -p o/art
 cd o/art
 
-[ -e "$@" ] && exit
 echo art $@
+[ -e "$@" ] && exit
 
 ../arttal art $@
 
