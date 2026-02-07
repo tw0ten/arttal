@@ -2,6 +2,8 @@ art 00000000
 glyph E000 00000000
 # m ' '
 glyph 0020 00000000
+# m ' '
+glyph 00A0 00000000
 # m '​'
 glyph 200B 00000000
 art 00000001
@@ -114,6 +116,8 @@ art 00100000
 glyph E020 00100000
 # m ','
 glyph 002C 00100000
+# m '､'
+glyph FF64 00100000
 art 00100001
 glyph E021 00100001
 art 00100010
@@ -308,6 +312,22 @@ glyph 0104 01000010
 glyph 00E4 01000010
 # m 'Ä'
 glyph 00C4 01000010
+# m 'à'
+glyph 00E0 01000010
+# m 'À'
+glyph 00C0 01000010
+# m 'á'
+glyph 00E1 01000010
+# m 'Á'
+glyph 00C1 01000010
+# m 'â'
+glyph 00E2 01000010
+# m 'Â'
+glyph 00C2 01000010
+# m 'ã'
+glyph 00E3 01000010
+# m 'Ã'
+glyph 00C3 01000010
 art 01000011
 glyph E043 01000011
 # m '7'
@@ -1058,7 +1078,6 @@ glyph FFFD 11111111
 glyph -001 11111111
 # font o/font/art.mono/ttf/Regular.ttf
 # font o/font/art.mono/font.otf
-# font o/font/art.mono/font.ttc
 # font o/font/art.mono/font-face.css
 font "art.mono"
 m o/m
@@ -1222,6 +1241,38 @@ glyph 0113 10010100+00000001
 # expander 'Ē' "Eー"
 art 10010100+00000001
 glyph 0112 10010100+00000001
+# expander 'à' "a`"
+art 01000010+00000110
+# glyph override
+glyph 00E0 01000010+00000110
+# expander 'À' "A`"
+art 01000010+00000110
+# glyph override
+glyph 00C0 01000010+00000110
+# expander 'á' "a'"
+art 01000010+00000100
+# glyph override
+glyph 00E1 01000010+00000100
+# expander 'Á' "A'"
+art 01000010+00000100
+# glyph override
+glyph 00C1 01000010+00000100
+# expander 'â' "a^"
+art 01000010+00011010
+# glyph override
+glyph 00E2 01000010+00011010
+# expander 'Â' "A^"
+art 01000010+00011010
+# glyph override
+glyph 00C2 01000010+00011010
+# expander 'ã' "a~"
+art 01000010+11111110
+# glyph override
+glyph 00E3 01000010+11111110
+# expander 'Ã' "A~"
+art 01000010+11111110
+# glyph override
+glyph 00C3 01000010+11111110
 # expander 'ž' "zh"
 art 11101000+11000100
 # glyph override
@@ -1274,6 +1325,9 @@ glyph 3000 00000000+00000000
 # expander '，' ", "
 art 00100000+00000000
 glyph FF0C 00100000+00000000
+# expander '、' ", "
+art 00100000+00000000
+glyph 3001 00100000+00000000
 # expander '！' "! "
 art 01000001+00000000
 glyph FF01 01000001+00000000
@@ -1311,225 +1365,6 @@ glyph 00B2 00011010+00010011
 art 00000001+00000001
 # glyph override
 glyph 3005 00000001+00000001
-# expander 'ア' "a"
-art 01000010
-glyph 30A2 01000010
-# expander 'イ' "i"
-art 00110010
-glyph 30A4 00110010
-# expander 'ウ' "u"
-art 00101100
-glyph 30A6 00101100
-# expander 'エ' "e"
-art 10010100
-glyph 30A8 10010100
-# expander 'オ' "o"
-art 01000101
-glyph 30AA 01000101
-# expander 'カ' "ka"
-art 01010101+01000010
-glyph 30AB 01010101+01000010
-# expander 'キ' "ki"
-art 01010101+00110010
-glyph 30AD 01010101+00110010
-# expander 'ク' "ku"
-art 01010101+00101100
-glyph 30AF 01010101+00101100
-# expander 'ケ' "ke"
-art 01010101+10010100
-glyph 30B1 01010101+10010100
-# expander 'コ' "ko"
-art 01010101+01000101
-glyph 30B3 01010101+01000101
-# expander 'ガ' "ga"
-art 10001100+01000010
-glyph 30AC 10001100+01000010
-# expander 'ギ' "gi"
-art 10001100+00110010
-glyph 30AE 10001100+00110010
-# expander 'グ' "gu"
-art 10001100+00101100
-glyph 30B0 10001100+00101100
-# expander 'ゲ' "ge"
-art 10001100+10010100
-glyph 30B2 10001100+10010100
-# expander 'ゴ' "go"
-art 10001100+01000101
-glyph 30B4 10001100+01000101
-# expander 'サ' "sa"
-art 10000101+01000010
-glyph 30B5 10000101+01000010
-# expander 'シ' "si"
-art 10000101+00110010
-glyph 30B7 10000101+00110010
-# expander 'ス' "su"
-art 10000101+00101100
-glyph 30B9 10000101+00101100
-# expander 'セ' "se"
-art 10000101+10010100
-glyph 30BB 10000101+10010100
-# expander 'ソ' "so"
-art 10000101+01000101
-glyph 30BD 10000101+01000101
-# expander 'ザ' "za"
-art 11101000+01000010
-glyph 30B6 11101000+01000010
-# expander 'ジ' "zi"
-art 11101000+00110010
-glyph 30B8 11101000+00110010
-# expander 'ズ' "zu"
-art 11101000+00101100
-glyph 30BA 11101000+00101100
-# expander 'ゼ' "ze"
-art 11101000+10010100
-glyph 30BC 11101000+10010100
-# expander 'ゾ' "zo"
-art 11101000+01000101
-glyph 30BE 11101000+01000101
-# expander 'タ' "ta"
-art 10000011+01000010
-glyph 30BF 10000011+01000010
-# expander 'チ' "ti"
-art 10000011+00110010
-glyph 30C1 10000011+00110010
-# expander 'ツ' "tu"
-art 10000011+00101100
-glyph 30C4 10000011+00101100
-# expander 'テ' "te"
-art 10000011+10010100
-glyph 30C6 10000011+10010100
-# expander 'ト' "to"
-art 10000011+01000101
-glyph 30C8 10000011+01000101
-# expander 'ダ' "da"
-art 01101100+01000010
-glyph 30C0 01101100+01000010
-# expander 'ヂ' "di"
-art 01101100+00110010
-glyph 30C2 01101100+00110010
-# expander 'ヅ' "du"
-art 01101100+00101100
-glyph 30C5 01101100+00101100
-# expander 'デ' "de"
-art 01101100+10010100
-glyph 30C7 01101100+10010100
-# expander 'ド' "do"
-art 01101100+01000101
-glyph 30C9 01101100+01000101
-# expander 'ナ' "na"
-art 01010100+01000010
-glyph 30CA 01010100+01000010
-# expander 'ニ' "ni"
-art 01010100+00110010
-glyph 30CB 01010100+00110010
-# expander 'ヌ' "nu"
-art 01010100+00101100
-glyph 30CC 01010100+00101100
-# expander 'ネ' "ne"
-art 01010100+10010100
-glyph 30CD 01010100+10010100
-# expander 'ノ' "no"
-art 01010100+01000101
-glyph 30CE 01010100+01000101
-# expander 'ハ' "ha"
-art 11000100+01000010
-glyph 30CF 11000100+01000010
-# expander 'ヒ' "hi"
-art 11000100+00110010
-glyph 30D2 11000100+00110010
-# expander 'フ' "hu"
-art 11000100+00101100
-glyph 30D5 11000100+00101100
-# expander 'ヘ' "he"
-art 11000100+10010100
-glyph 30D8 11000100+10010100
-# expander 'ホ' "ho"
-art 11000100+01000101
-glyph 30DB 11000100+01000101
-# expander 'バ' "ba"
-art 10000100+01000010
-glyph 30D0 10000100+01000010
-# expander 'ビ' "bi"
-art 10000100+00110010
-glyph 30D3 10000100+00110010
-# expander 'ブ' "bu"
-art 10000100+00101100
-glyph 30D6 10000100+00101100
-# expander 'ベ' "be"
-art 10000100+10010100
-glyph 30D9 10000100+10010100
-# expander 'ボ' "bo"
-art 10000100+01000101
-glyph 30DC 10000100+01000101
-# expander 'パ' "pa"
-art 01011000+01000010
-glyph 30D1 01011000+01000010
-# expander 'ピ' "pi"
-art 01011000+00110010
-glyph 30D4 01011000+00110010
-# expander 'プ' "pu"
-art 01011000+00101100
-glyph 30D7 01011000+00101100
-# expander 'ペ' "pe"
-art 01011000+10010100
-glyph 30DA 01011000+10010100
-# expander 'ポ' "po"
-art 01011000+01000101
-glyph 30DD 01011000+01000101
-# expander 'マ' "ma"
-art 11001100+01000010
-glyph 30DE 11001100+01000010
-# expander 'ミ' "mi"
-art 11001100+00110010
-glyph 30DF 11001100+00110010
-# expander 'ム' "mu"
-art 11001100+00101100
-glyph 30E0 11001100+00101100
-# expander 'メ' "me"
-art 11001100+10010100
-glyph 30E1 11001100+10010100
-# expander 'モ' "mo"
-art 11001100+01000101
-glyph 30E2 11001100+01000101
-# expander 'ヤ' "ya"
-art 00101010+01000010
-glyph 30E4 00101010+01000010
-# expander 'ユ' "yu"
-art 00101010+00101100
-glyph 30E6 00101010+00101100
-# expander 'ヨ' "yo"
-art 00101010+01000101
-glyph 30E8 00101010+01000101
-# expander 'ラ' "ra"
-art 10011000+01000010
-glyph 30E9 10011000+01000010
-# expander 'リ' "ri"
-art 10011000+00110010
-glyph 30EA 10011000+00110010
-# expander 'ル' "ru"
-art 10011000+00101100
-glyph 30EB 10011000+00101100
-# expander 'レ' "re"
-art 10011000+10010100
-glyph 30EC 10011000+10010100
-# expander 'ロ' "ro"
-art 10011000+01000101
-glyph 30ED 10011000+01000101
-# expander 'ワ' "wa"
-art 01100110+01000010
-glyph 30EF 01100110+01000010
-# expander 'ヰ' "wi"
-art 01100110+00110010
-glyph 30F0 01100110+00110010
-# expander 'ヱ' "we"
-art 01100110+10010100
-glyph 30F1 01100110+10010100
-# expander 'ヲ' "wo"
-art 01100110+01000101
-glyph 30F2 01100110+01000101
-# expander 'ン' "n"
-art 01010100
-glyph 30F3 01010100
 # expander 'あ' "a"
 art 01000010
 glyph 3042 01000010
@@ -1545,137 +1380,520 @@ glyph 3048 10010100
 # expander 'お' "o"
 art 01000101
 glyph 304A 01000101
-# expander 'か' "ka"
+# expander 'ぁ' "a"
+art 01000010
+glyph 3041 01000010
+# expander 'ぃ' "i"
+art 00110010
+glyph 3043 00110010
+# expander 'ぅ' "u"
+art 00101100
+glyph 3045 00101100
+# expander 'ぇ' "e"
+art 10010100
+glyph 3047 10010100
+# expander 'ぉ' "o"
+art 01000101
+glyph 3049 01000101
+# expander 'か' "Ka"
 art 01010101+01000010
 glyph 304B 01010101+01000010
-# expander 'き' "ki"
+# expander 'き' "Ki"
 art 01010101+00110010
 glyph 304D 01010101+00110010
-# expander 'く' "ku"
+# expander 'く' "Ku"
 art 01010101+00101100
 glyph 304F 01010101+00101100
-# expander 'け' "ke"
+# expander 'け' "Ke"
 art 01010101+10010100
 glyph 3051 01010101+10010100
-# expander 'こ' "ko"
+# expander 'こ' "Ko"
 art 01010101+01000101
 glyph 3053 01010101+01000101
-# expander 'さ' "sa"
+# expander 'ゕ' "ka"
+art 01010101+01000010
+glyph 3095 01010101+01000010
+# expander 'ゖ' "ke"
+art 01010101+10010100
+glyph 3096 01010101+10010100
+# expander 'が' "Ga"
+art 10001100+01000010
+glyph 304C 10001100+01000010
+# expander 'ぎ' "Gi"
+art 10001100+00110010
+glyph 304E 10001100+00110010
+# expander 'ぐ' "Gu"
+art 10001100+00101100
+glyph 3050 10001100+00101100
+# expander 'げ' "Ge"
+art 10001100+10010100
+glyph 3052 10001100+10010100
+# expander 'ご' "Go"
+art 10001100+01000101
+glyph 3054 10001100+01000101
+# expander 'さ' "Sa"
 art 10000101+01000010
 glyph 3055 10000101+01000010
-# expander 'し' "si"
+# expander 'し' "Si"
 art 10000101+00110010
 glyph 3057 10000101+00110010
-# expander 'す' "su"
+# expander 'す' "Su"
 art 10000101+00101100
 glyph 3059 10000101+00101100
-# expander 'せ' "se"
+# expander 'せ' "Se"
 art 10000101+10010100
 glyph 305B 10000101+10010100
-# expander 'そ' "so"
+# expander 'そ' "So"
 art 10000101+01000101
 glyph 305D 10000101+01000101
-# expander 'た' "ta"
+# expander 'ざ' "Za"
+art 11101000+01000010
+glyph 3056 11101000+01000010
+# expander 'じ' "Zi"
+art 11101000+00110010
+glyph 3058 11101000+00110010
+# expander 'ず' "Zu"
+art 11101000+00101100
+glyph 305A 11101000+00101100
+# expander 'ぜ' "Ze"
+art 11101000+10010100
+glyph 305C 11101000+10010100
+# expander 'ぞ' "Zo"
+art 11101000+01000101
+glyph 305E 11101000+01000101
+# expander 'た' "Ta"
 art 10000011+01000010
 glyph 305F 10000011+01000010
-# expander 'ち' "ti"
+# expander 'ち' "Ti"
 art 10000011+00110010
 glyph 3061 10000011+00110010
-# expander 'つ' "tu"
+# expander 'つ' "Tu"
 art 10000011+00101100
 glyph 3064 10000011+00101100
-# expander 'て' "te"
+# expander 'て' "Te"
 art 10000011+10010100
 glyph 3066 10000011+10010100
-# expander 'と' "to"
+# expander 'と' "To"
 art 10000011+01000101
 glyph 3068 10000011+01000101
-# expander 'な' "na"
+# expander 'っ' "tu"
+art 10000011+00101100
+glyph 3063 10000011+00101100
+# expander 'だ' "Da"
+art 01101100+01000010
+glyph 3060 01101100+01000010
+# expander 'ぢ' "Di"
+art 01101100+00110010
+glyph 3062 01101100+00110010
+# expander 'づ' "Du"
+art 01101100+00101100
+glyph 3065 01101100+00101100
+# expander 'で' "De"
+art 01101100+10010100
+glyph 3067 01101100+10010100
+# expander 'ど' "Do"
+art 01101100+01000101
+glyph 3069 01101100+01000101
+# expander 'な' "Na"
 art 01010100+01000010
 glyph 306A 01010100+01000010
-# expander 'に' "ni"
+# expander 'に' "Ni"
 art 01010100+00110010
 glyph 306B 01010100+00110010
-# expander 'ぬ' "nu"
+# expander 'ぬ' "Nu"
 art 01010100+00101100
 glyph 306C 01010100+00101100
-# expander 'ね' "ne"
+# expander 'ね' "Ne"
 art 01010100+10010100
 glyph 306D 01010100+10010100
-# expander 'の' "no"
+# expander 'の' "No"
 art 01010100+01000101
 glyph 306E 01010100+01000101
-# expander 'は' "ha"
+# expander 'は' "Ha"
 art 11000100+01000010
 glyph 306F 11000100+01000010
-# expander 'ひ' "hi"
+# expander 'ひ' "Hi"
 art 11000100+00110010
 glyph 3072 11000100+00110010
-# expander 'ふ' "hu"
+# expander 'ふ' "Hu"
 art 11000100+00101100
 glyph 3075 11000100+00101100
-# expander 'へ' "he"
+# expander 'へ' "He"
 art 11000100+10010100
 glyph 3078 11000100+10010100
-# expander 'ほ' "ho"
+# expander 'ほ' "Ho"
 art 11000100+01000101
 glyph 307B 11000100+01000101
-# expander 'ま' "ma"
+# expander 'ば' "Ba"
+art 10000100+01000010
+glyph 3070 10000100+01000010
+# expander 'び' "Bi"
+art 10000100+00110010
+glyph 3073 10000100+00110010
+# expander 'ぶ' "Bu"
+art 10000100+00101100
+glyph 3076 10000100+00101100
+# expander 'べ' "Be"
+art 10000100+10010100
+glyph 3079 10000100+10010100
+# expander 'ぼ' "Bo"
+art 10000100+01000101
+glyph 307C 10000100+01000101
+# expander 'ぱ' "Pa"
+art 01011000+01000010
+glyph 3071 01011000+01000010
+# expander 'ぴ' "Pi"
+art 01011000+00110010
+glyph 3074 01011000+00110010
+# expander 'ぷ' "Pu"
+art 01011000+00101100
+glyph 3077 01011000+00101100
+# expander 'ぺ' "Pe"
+art 01011000+10010100
+glyph 307A 01011000+10010100
+# expander 'ぽ' "Po"
+art 01011000+01000101
+glyph 307D 01011000+01000101
+# expander 'ま' "Ma"
 art 11001100+01000010
 glyph 307E 11001100+01000010
-# expander 'み' "mi"
+# expander 'み' "Mi"
 art 11001100+00110010
 glyph 307F 11001100+00110010
-# expander 'む' "mu"
+# expander 'む' "Mu"
 art 11001100+00101100
 glyph 3080 11001100+00101100
-# expander 'め' "me"
+# expander 'め' "Me"
 art 11001100+10010100
 glyph 3081 11001100+10010100
-# expander 'も' "mo"
+# expander 'も' "Mo"
 art 11001100+01000101
 glyph 3082 11001100+01000101
-# expander 'や' "ya"
+# expander 'や' "Ya"
 art 00101010+01000010
 glyph 3084 00101010+01000010
-# expander 'ゆ' "yu"
+# expander 'ゆ' "Yu"
 art 00101010+00101100
 glyph 3086 00101010+00101100
-# expander 'よ' "yo"
+# expander 'よ' "Yo"
 art 00101010+01000101
 glyph 3088 00101010+01000101
-# expander 'ら' "ra"
+# expander 'ゃ' "ya"
+art 00101010+01000010
+glyph 3083 00101010+01000010
+# expander 'ゅ' "yu"
+art 00101010+00101100
+glyph 3085 00101010+00101100
+# expander 'ょ' "yo"
+art 00101010+01000101
+glyph 3087 00101010+01000101
+# expander 'ら' "Ra"
 art 10011000+01000010
 glyph 3089 10011000+01000010
-# expander 'り' "ri"
+# expander 'り' "Ri"
 art 10011000+00110010
 glyph 308A 10011000+00110010
-# expander 'る' "ru"
+# expander 'る' "Ru"
 art 10011000+00101100
 glyph 308B 10011000+00101100
-# expander 'れ' "re"
+# expander 'れ' "Re"
 art 10011000+10010100
 glyph 308C 10011000+10010100
-# expander 'ろ' "ro"
+# expander 'ろ' "Ro"
 art 10011000+01000101
 glyph 308D 10011000+01000101
-# expander 'わ' "wa"
+# expander 'わ' "Wa"
 art 01100110+01000010
 glyph 308F 01100110+01000010
-# expander 'ゐ' "wi"
+# expander 'ゐ' "Wi"
 art 01100110+00110010
 glyph 3090 01100110+00110010
-# expander 'ゑ' "we"
+# expander 'ゔ' "Wu"
+art 01100110+00101100
+glyph 3094 01100110+00101100
+# expander 'ゑ' "We"
 art 01100110+10010100
 glyph 3091 01100110+10010100
-# expander 'を' "wo"
+# expander 'を' "Wo"
 art 01100110+01000101
 glyph 3092 01100110+01000101
+# expander 'ゎ' "wa"
+art 01100110+01000010
+glyph 308E 01100110+01000010
 # expander 'ん' "n"
 art 01010100
 glyph 3093 01010100
+# expander 'ア' "a"
+art 01000010
+glyph 30A2 01000010
+# expander 'イ' "i"
+art 00110010
+glyph 30A4 00110010
+# expander 'ウ' "u"
+art 00101100
+glyph 30A6 00101100
+# expander 'エ' "e"
+art 10010100
+glyph 30A8 10010100
+# expander 'オ' "o"
+art 01000101
+glyph 30AA 01000101
+# expander 'ァ' "a"
+art 01000010
+glyph 30A1 01000010
+# expander 'ィ' "i"
+art 00110010
+glyph 30A3 00110010
+# expander 'ゥ' "u"
+art 00101100
+glyph 30A5 00101100
+# expander 'ェ' "e"
+art 10010100
+glyph 30A7 10010100
+# expander 'ォ' "o"
+art 01000101
+glyph 30A9 01000101
+# expander 'カ' "Ka"
+art 01010101+01000010
+glyph 30AB 01010101+01000010
+# expander 'キ' "Ki"
+art 01010101+00110010
+glyph 30AD 01010101+00110010
+# expander 'ク' "Ku"
+art 01010101+00101100
+glyph 30AF 01010101+00101100
+# expander 'ケ' "Ke"
+art 01010101+10010100
+glyph 30B1 01010101+10010100
+# expander 'コ' "Ko"
+art 01010101+01000101
+glyph 30B3 01010101+01000101
+# expander 'ヵ' "ka"
+art 01010101+01000010
+glyph 30F5 01010101+01000010
+# expander 'ヶ' "ke"
+art 01010101+10010100
+glyph 30F6 01010101+10010100
+# expander 'ガ' "Ga"
+art 10001100+01000010
+glyph 30AC 10001100+01000010
+# expander 'ギ' "Gi"
+art 10001100+00110010
+glyph 30AE 10001100+00110010
+# expander 'グ' "Gu"
+art 10001100+00101100
+glyph 30B0 10001100+00101100
+# expander 'ゲ' "Ge"
+art 10001100+10010100
+glyph 30B2 10001100+10010100
+# expander 'ゴ' "Go"
+art 10001100+01000101
+glyph 30B4 10001100+01000101
+# expander 'サ' "Sa"
+art 10000101+01000010
+glyph 30B5 10000101+01000010
+# expander 'シ' "Si"
+art 10000101+00110010
+glyph 30B7 10000101+00110010
+# expander 'ス' "Su"
+art 10000101+00101100
+glyph 30B9 10000101+00101100
+# expander 'セ' "Se"
+art 10000101+10010100
+glyph 30BB 10000101+10010100
+# expander 'ソ' "So"
+art 10000101+01000101
+glyph 30BD 10000101+01000101
+# expander 'ザ' "Za"
+art 11101000+01000010
+glyph 30B6 11101000+01000010
+# expander 'ジ' "Zi"
+art 11101000+00110010
+glyph 30B8 11101000+00110010
+# expander 'ズ' "Zu"
+art 11101000+00101100
+glyph 30BA 11101000+00101100
+# expander 'ゼ' "Ze"
+art 11101000+10010100
+glyph 30BC 11101000+10010100
+# expander 'ゾ' "Zo"
+art 11101000+01000101
+glyph 30BE 11101000+01000101
+# expander 'タ' "Ta"
+art 10000011+01000010
+glyph 30BF 10000011+01000010
+# expander 'チ' "Ti"
+art 10000011+00110010
+glyph 30C1 10000011+00110010
+# expander 'ツ' "Tu"
+art 10000011+00101100
+glyph 30C4 10000011+00101100
+# expander 'テ' "Te"
+art 10000011+10010100
+glyph 30C6 10000011+10010100
+# expander 'ト' "To"
+art 10000011+01000101
+glyph 30C8 10000011+01000101
+# expander 'ッ' "tu"
+art 10000011+00101100
+glyph 30C3 10000011+00101100
+# expander 'ダ' "Da"
+art 01101100+01000010
+glyph 30C0 01101100+01000010
+# expander 'ヂ' "Di"
+art 01101100+00110010
+glyph 30C2 01101100+00110010
+# expander 'ヅ' "Du"
+art 01101100+00101100
+glyph 30C5 01101100+00101100
+# expander 'デ' "De"
+art 01101100+10010100
+glyph 30C7 01101100+10010100
+# expander 'ド' "Do"
+art 01101100+01000101
+glyph 30C9 01101100+01000101
+# expander 'ナ' "Na"
+art 01010100+01000010
+glyph 30CA 01010100+01000010
+# expander 'ニ' "Ni"
+art 01010100+00110010
+glyph 30CB 01010100+00110010
+# expander 'ヌ' "Nu"
+art 01010100+00101100
+glyph 30CC 01010100+00101100
+# expander 'ネ' "Ne"
+art 01010100+10010100
+glyph 30CD 01010100+10010100
+# expander 'ノ' "No"
+art 01010100+01000101
+glyph 30CE 01010100+01000101
+# expander 'ハ' "Ha"
+art 11000100+01000010
+glyph 30CF 11000100+01000010
+# expander 'ヒ' "Hi"
+art 11000100+00110010
+glyph 30D2 11000100+00110010
+# expander 'フ' "Hu"
+art 11000100+00101100
+glyph 30D5 11000100+00101100
+# expander 'ヘ' "He"
+art 11000100+10010100
+glyph 30D8 11000100+10010100
+# expander 'ホ' "Ho"
+art 11000100+01000101
+glyph 30DB 11000100+01000101
+# expander 'バ' "Ba"
+art 10000100+01000010
+glyph 30D0 10000100+01000010
+# expander 'ビ' "Bi"
+art 10000100+00110010
+glyph 30D3 10000100+00110010
+# expander 'ブ' "Bu"
+art 10000100+00101100
+glyph 30D6 10000100+00101100
+# expander 'ベ' "Be"
+art 10000100+10010100
+glyph 30D9 10000100+10010100
+# expander 'ボ' "Bo"
+art 10000100+01000101
+glyph 30DC 10000100+01000101
+# expander 'パ' "Pa"
+art 01011000+01000010
+glyph 30D1 01011000+01000010
+# expander 'ピ' "Pi"
+art 01011000+00110010
+glyph 30D4 01011000+00110010
+# expander 'プ' "Pu"
+art 01011000+00101100
+glyph 30D7 01011000+00101100
+# expander 'ペ' "Pe"
+art 01011000+10010100
+glyph 30DA 01011000+10010100
+# expander 'ポ' "Po"
+art 01011000+01000101
+glyph 30DD 01011000+01000101
+# expander 'マ' "Ma"
+art 11001100+01000010
+glyph 30DE 11001100+01000010
+# expander 'ミ' "Mi"
+art 11001100+00110010
+glyph 30DF 11001100+00110010
+# expander 'ム' "Mu"
+art 11001100+00101100
+glyph 30E0 11001100+00101100
+# expander 'メ' "Me"
+art 11001100+10010100
+glyph 30E1 11001100+10010100
+# expander 'モ' "Mo"
+art 11001100+01000101
+glyph 30E2 11001100+01000101
+# expander 'ヤ' "Ya"
+art 00101010+01000010
+glyph 30E4 00101010+01000010
+# expander 'ユ' "Yu"
+art 00101010+00101100
+glyph 30E6 00101010+00101100
+# expander 'ヨ' "Yo"
+art 00101010+01000101
+glyph 30E8 00101010+01000101
+# expander 'ャ' "ya"
+art 00101010+01000010
+glyph 30E3 00101010+01000010
+# expander 'ュ' "yu"
+art 00101010+00101100
+glyph 30E5 00101010+00101100
+# expander 'ョ' "yo"
+art 00101010+01000101
+glyph 30E7 00101010+01000101
+# expander 'ラ' "Ra"
+art 10011000+01000010
+glyph 30E9 10011000+01000010
+# expander 'リ' "Ri"
+art 10011000+00110010
+glyph 30EA 10011000+00110010
+# expander 'ル' "Ru"
+art 10011000+00101100
+glyph 30EB 10011000+00101100
+# expander 'レ' "Re"
+art 10011000+10010100
+glyph 30EC 10011000+10010100
+# expander 'ロ' "Ro"
+art 10011000+01000101
+glyph 30ED 10011000+01000101
+# expander 'ワ' "Wa"
+art 01100110+01000010
+glyph 30EF 01100110+01000010
+# expander 'ヰ' "Wi"
+art 01100110+00110010
+glyph 30F0 01100110+00110010
+# expander 'ヱ' "We"
+art 01100110+10010100
+glyph 30F1 01100110+10010100
+# expander 'ヲ' "Wo"
+art 01100110+01000101
+glyph 30F2 01100110+01000101
+# expander 'ヮ' "wa"
+art 01100110+01000010
+glyph 30EE 01100110+01000010
+# expander 'ヷ' "Va"
+art 01100100+01000010
+glyph 30F7 01100100+01000010
+# expander 'ヸ' "Vi"
+art 01100100+00110010
+glyph 30F8 01100100+00110010
+# expander 'ヴ' "Vu"
+art 01100100+00101100
+glyph 30F4 01100100+00101100
+# expander 'ヹ' "Ve"
+art 01100100+10010100
+glyph 30F9 01100100+10010100
+# expander 'ヺ' "Vo"
+art 01100100+01000101
+glyph 30FA 01100100+01000101
+# expander 'ン' "n"
+art 01010100
+glyph 30F3 01010100
 # font o/font/art/ttf/Regular.ttf
 # font o/font/art/font.otf
-# font o/font/art/font.ttc
 # font o/font/art/font-face.css
 font "art"
