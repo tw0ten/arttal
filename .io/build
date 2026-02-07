@@ -1,6 +1,8 @@
 #!/bin/sh
 set -ex
 
+mkdir -p .io/o
+
 cabal build
 diff "$(cabal list-bin arttal)" .io/o/arttal || {
 	rm -rf .io/o/art

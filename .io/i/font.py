@@ -3,6 +3,8 @@ import sys
 import fontforge
 from fontTools.ttLib import TTCollection, TTFont
 font = fontforge.font()
+font.copyright = "https://github.com/tw0ten/arttal"
+font.version = "0"
 
 
 def font_generate(name="art"):
@@ -75,7 +77,7 @@ def is_caseable(i): return \
 
 m = [[] for i in range(2 ** 8)]
 
-m[0b00000000] += [' ', '​']
+m[0b00000000] += [' ',  ' ', '​']
 m[0b00000001] += ['ー', '々', '〻']
 m[0b00000011] += ['1']
 m[0b00000100] += ['\'']+['‘', '’']
@@ -182,7 +184,6 @@ def glyph_for_char(i):
     return None
 
 
-font.em = 1024
 font.descent = 0
 font.ascent = 128 * 12
 
