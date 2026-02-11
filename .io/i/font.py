@@ -1,10 +1,10 @@
 import os
 import sys
 import fontforge
-from fontTools.ttLib import TTCollection, TTFont
 font = fontforge.font()
 font.copyright = "https://github.com/tw0ten/arttal"
 font.version = "0"
+font.os2_panose = (2, 0, 0, 9, 0, 0, 0, 0, 0, 0)
 
 
 def font_generate(name="art"):
@@ -32,25 +32,19 @@ def font_generate(name="art"):
         f = font
 
         f.weight = variant
-        f.os2_weight = weight
 
         f.fontname = f"{name}-{variant}"
         f.fullname = name if scale == 0 else f"{name} ({variant})"
 
         file = f"{path}/ttf/{variant}.ttf"
         print("# font", file)
+        f.validate()
         f.generate(file)
 
         if scale == 0:
             file = f"{path}/font.otf"
             print("# font", file)
             f.generate(file)
-
-    file = f"{path}/font.ttc"
-    print("# font", file)
-    ttc = TTCollection()
-    ttc.fonts.extend(TTFont(f"{path}/ttf/{i[0]}.ttf") for i in variants)
-    ttc.save(file)
 
     file = f"{path}/font-face.css"
     print("# font", file)
@@ -225,6 +219,7 @@ for i in range(len(m)):
         add_glyph(i[c], file)
 
 
+assert len({g.width for g in font.glyphs() if g.width > 0}) == 1
 font_generate("art.mono")
 
 file = "o/m"
