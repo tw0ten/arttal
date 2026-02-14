@@ -85,7 +85,7 @@ m[0b00010001] += ['=']
 m[0b00010011] += ['2']
 m[0b00010101] += ['#']
 m[0b00011010] += ['^']
-m[0b00100000] += [',']
+m[0b00100000] += [',', '､']
 m[0b00100010] += ['/'] + ['÷']
 m[0b00101000] += [')']
 m[0b00101001] += ['?']
@@ -323,6 +323,7 @@ add_expander('®', "(R)")
 add_expander('。', ". ")
 add_expander('　', "  ", repeat=False)
 add_expander('，', ", ")
+add_expander('、', ", ")
 add_expander('！', "! ")
 add_expander('？', "? ")
 add_expander('；', "; ")
@@ -395,8 +396,10 @@ def japanese():
                     add_expander(kana[i], f"{c1}{c2}")
 
     add_expander('々', "ーー", repeat=False)
+
     kana(hiragana)
     add_expander('ん', "n")
+
     kana(katakana)
     add_expander('ン', "n")
 
