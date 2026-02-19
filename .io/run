@@ -8,17 +8,16 @@ for family in */; do ( set -e
 	cd "$family"
 	family="$(echo "$family" | sed 's/.$//')"
 	( cd ttf && for file in *; do
-		fc-query "$file"
 		sudo cp -v \
 			"$file" "/usr/share/fonts/TTF/$family-$file"
 	done )
 ) done
 
-fc-cache -vf )
+fc-cache -f )
 
 
-( set -e; cd i/locale
-	sudo cp arttal.locale /usr/share/i18n/locales/arttal
+( set -e
+	sudo cp -v i/locale /usr/share/i18n/locales/C
 	sudo locale-gen )
 
 set -x
